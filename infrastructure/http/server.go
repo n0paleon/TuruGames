@@ -2,7 +2,6 @@ package http
 
 import (
 	"TuruGames/infrastructure/logging"
-	"fmt"
 	"time"
 
 	json "github.com/bytedance/sonic"
@@ -22,10 +21,6 @@ func InitServer(config *viper.Viper, logger *logging.SLogger) *fiber.App {
 		WriteTimeout:      30 * time.Second,
 		ErrorHandler:      HttpErrorHandler(config, logger),
 	})
-
-	web_host := config.GetString("server.host")
-	web_port := config.GetInt("server.port")
-	app.Listen(fmt.Sprintf("%s:%d", web_host, web_port))
 
 	return app
 }
