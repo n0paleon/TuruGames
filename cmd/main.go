@@ -4,9 +4,9 @@ import (
 	"TuruGames/infrastructure/config"
 	"TuruGames/infrastructure/http"
 	"TuruGames/infrastructure/logging"
+	"TuruGames/internal/di"
+	"TuruGames/internal/types"
 	"fmt"
-
-	"github.com/gofiber/fiber/v2"
 )
 
 func StartWebService() {
@@ -14,10 +14,10 @@ func StartWebService() {
 	logger := logging.NewLogger(config)
 	server := http.InitServer(config, logger)
 
-	server.Get("/", func(ctx *fiber.Ctx) error {
-		return ctx.JSON(&fiber.Map{
-			"msg": "hello world!",
-		})
+	di.Container(&types.Container{
+		Config: config,
+		Logger: logger,
+		Server: server,
 	})
 
 	web_host := config.GetString("server.host")
