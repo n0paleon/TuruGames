@@ -1,0 +1,63 @@
+{
+     "app": {
+          "name": "TuruGames",
+          "version": "2.0.2",
+          "author": "Muhammad Naufal Al Fattah",
+          "development": true,
+          "timezone": "Asia/Jakarta"
+     },
+     "log": {
+          "level": 0,
+          "encoding": "json",
+          "write_file": false
+     },
+     "server": {
+          "prefork": false,
+          "port": 80,
+          "host": "localhost"
+     },
+     "database": {
+          "migrate": false,
+          "host": "origin.turudev.my.id",
+          "port": 5432,
+          "name": "turugames",
+          "username": "turugames",
+          "password": "turugames",
+          "pool": {
+               "idle": 10,
+               "max": 100,
+               "lifetime": 120
+          },
+          "sslmode": "disable",
+          "_log_level": {
+               "1": "silent",
+               "2": "error",
+               "3": "warn",
+               "4": "info"
+          },
+          "log_level": 4
+     },
+     "default": {
+          "is_admin": true
+     },
+     "prefix": {
+          "user": "KB"
+     },
+     "user_default": {
+          "balance": "1000"
+     },
+     "cors": {
+          "allow_origins": "https://kiosbedul.id"
+     },
+     "context": {
+          "timeout_ms": 2000
+     },
+     "ratelimit": {
+          "max": 30,
+          "expiration_min": 1
+     },
+     "jwt": {
+          "secret": "aku adalah anak pintar tubuhku sehat dan kuat",
+          "expiration_d": 30
+     }
+}
