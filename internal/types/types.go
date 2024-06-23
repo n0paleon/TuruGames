@@ -16,3 +16,5 @@ type Container struct {
 type Config = viper.Viper
 type Logger = logging.SLogger
 type WebFramework = fiber.App
+
+type HttpCtx = fiber.Ctx

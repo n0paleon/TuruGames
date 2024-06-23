@@ -12,6 +12,7 @@ import (
 func StartWebService() {
 	config := config.InitConfig()
 	logger := logging.NewLogger(config)
+	defer logger.Sync()
 	server := http.InitServer(config, logger)
 
 	di.Container(&types.Container{
@@ -19,6 +20,8 @@ func StartWebService() {
 		Logger: logger,
 		Server: server,
 	})
+
+	logger.Info("server started!")
 
 	web_host := config.GetString("server.host")
 	web_port := config.GetInt("server.port")

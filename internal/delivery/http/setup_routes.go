@@ -1,28 +1,23 @@
 package http
 
 import (
-	"TuruGames/internal/delivery/http/handler"
 	"TuruGames/internal/types"
 )
 
-type Handler struct {
-	HelloWorld *handler.HelloWorldHandler
-}
+type Handler = map[string]interface{}
 
 type Router struct {
 	App     *types.WebFramework
-	Handler *Handler
+	Handler Handler
 }
 
 func NewRouter(
 	app *types.WebFramework,
-	HelloWorldHandler *handler.HelloWorldHandler,
+	handlers Handler,
 ) *Router {
 	return &Router{
-		App: app,
-		Handler: &Handler{
-			HelloWorld: HelloWorldHandler,
-		},
+		App:     app,
+		Handler: handlers,
 	}
 }
 

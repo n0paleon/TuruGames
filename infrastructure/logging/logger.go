@@ -26,13 +26,14 @@ func NewLogger(config *viper.Viper) *SLogger {
 			EncodeDuration: zapcore.StringDurationEncoder,
 			EncodeCaller:   zapcore.ShortCallerEncoder,
 		},
+		OutputPaths:      []string{"stdout"},
+		ErrorOutputPaths: []string{"stderr"},
 	}
 
 	logger, err := options.Build()
 	if err != nil {
 		panic(err)
 	}
-	defer logger.Sync()
 
 	return logger.Sugar()
 }

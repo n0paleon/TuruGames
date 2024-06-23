@@ -7,8 +7,8 @@
           "timezone": "Asia/Jakarta"
      },
      "log": {
-          "level": 0,
-          "encoding": "json",
+          "level": -1,
+          "encoding": "console",
           "write_file": false
      },
      "server": {

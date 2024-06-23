@@ -17,6 +17,7 @@ func NewHelloWorldHandler(log *types.Logger) *HelloWorldHandler {
 }
 
 func (h *HelloWorldHandler) HelloWorld(ctx *fiber.Ctx) error {
+	h.Logger.Debug("accessed hello world")
 	return ctx.JSON(&fiber.Map{
 		"msg": "hello world",
 	})
